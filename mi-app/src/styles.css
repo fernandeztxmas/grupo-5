@@ -1,0 +1,188 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Asegura que el contenido esté centrado verticalmente */
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background-color: #1e1e1e; /* Fondo ligeramente más claro */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Títulos */
+h2 {
+  color: #bb86fc; /* Color púrpura claro */
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Campos del formulario */
+form div {
+  margin-bottom: 20px;
+}
+
+/* Etiquetas */
+label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #e0e0e0;
+  display: block;
+}
+
+/* Inputs y Textareas */
+input, textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #bb86fc;
+  box-shadow: 0 0 4px rgba(187, 134, 252, 0.6); /* Añade un sutil brillo al foco */
+}
+
+/* Botones */
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #6200ea; /* Color púrpura */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%; /* Hacer el botón ocupar todo el ancho del formulario */
+}
+
+button:hover {
+  background-color: #3700b3; /* Púrpura más oscuro */
+  transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+/* Enlaces */
+.link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #bb86fc;
+  text-decoration: none;
+  text-align: center;
+  display: block; /* Asegura que el enlace ocupe todo el ancho disponible */
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Lista de productos */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 15px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  background-color: #2c2c2c; /* Fondo del ítem de la lista */
+  border-radius: 6px;
+  margin-bottom: 15px; /* Separación entre ítems */
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+/* Contenido de los productos */
+.product-details {
+  margin-bottom: 10px; /* Espacio entre detalles */
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #bb86fc; /* Color púrpura claro */
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-size: 16px;
+  color: #e0e0e0; /* Texto claro */
+  margin-bottom: 5px;
+}
+
+.product-description {
+  font-size: 14px;
+  color: #e0e0e0; /* Texto claro */
+}
+
+/* Botones de acción (modificar y eliminar) */
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center; /* Centra los botones de acción */
+}
+
+.action-buttons a {
+  padding: 8px 15px;
+  font-size: 14px;
+  color: #03dac6; /* Verde claro */
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid #03dac6; /* Borde del botón */
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.action-buttons a:hover {
+  background-color: #03dac6; /* Fondo verde claro en hover */
+  color: #121212; /* Texto oscuro en hover */
+}
+
+/* Botón de acción - eliminar */
+.action-buttons .delete-button {
+  padding: 8px 15px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #b00020; /* Rojo */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.action-buttons .delete-button:hover {
+  background-color: #7f0000; /* Rojo más oscuro */
+  transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.message {
+  color: #cf6679; /* Color de error */
+  font-size: 14px;
+}
