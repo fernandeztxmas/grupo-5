@@ -5,61 +5,82 @@ from src.example import models, schemas, exceptions, services
 
 router = APIRouter()
 
-# Rutas para Personas
+@router.post("/productos", response_model=schemas.Producto)
+def create_producto(producto: schemas.ProductoCreate, db: Session = Depends(get_db)):
+    return services.crear_producto(db, producto)
 
+@router.get("/productos", response_model=list[schemas.Producto])
+def read_productos(db: Session = Depends(get_db)):
+    return services.listar_productos(db)
 
-@router.post("/personas", response_model=schemas.Persona)
-def create_persona(persona: schemas.PersonaCreate, db: Session = Depends(get_db)):
-    return services.crear_persona(db, persona)
+@router.get("/productos/{producto_id}", response_model=schemas.Producto)
+def read_producto(producto_id: int, db: Session = Depends(get_db)):
+    return services.leer_producto(db, producto_id)
 
-
-@router.get("/personas", response_model=list[schemas.Persona])
-def read_personas(db: Session = Depends(get_db)):
-    return services.listar_personas(db)
-
-
-@router.get("/personas/{persona_id}", response_model=schemas.Persona)
-def read_persona(persona_id: int, db: Session = Depends(get_db)):
-    return services.leer_persona(db, persona_id)
-
-
-@router.put("/personas/{persona_id}", response_model=schemas.Persona)
-def update_persona(
-    persona_id: int, persona: schemas.PersonaUpdate, db: Session = Depends(get_db)
+@router.put("/productos/{producto_id}", response_model=schemas.Producto)
+def update_producto(
+    producto_id: int, producto: schemas.ProductoUpdate, db: Session = Depends(get_db)
 ):
-    return services.modificar_persona(db, persona_id, persona)
+    return services.modificar_producto(db, producto_id, producto)
+
+@router.delete("/productos/{producto_id}", response_model=schemas.Producto)
+def delete_producto(producto_id: int, db: Session = Depends(get_db)):
+    return services.eliminar_producto(db, producto_id)
 
 
-@router.delete("/personas/{persona_id}", response_model=schemas.Persona)
-def delete_persona(persona_id: int, db: Session = Depends(get_db)):
-    return services.eliminar_persona(db, persona_id)
+# Rutas para Pizzas
+
+@router.post("/pizzas", response_model=schemas.Pizza)
+def create_pizza(pizza: schemas.PizzaCreate, db: Session = Depends(get_db)):
+    return services.crear_pizza(db, pizza)
 
 
-# Rutas para Personas
+@router.get("/pizzas", response_model=list[schemas.Pizza])
+def read_pizzas(db: Session = Depends(get_db)):
+    return services.listar_pizzas(db)
 
 
-@router.post("/mascotas", response_model=schemas.Mascota)
-def create_mascota(mascota: schemas.MascotaCreate, db: Session = Depends(get_db)):
-    return services.crear_mascota(db, mascota)
+@router.get("/pizzas/{pizza_id}", response_model=schemas.Pizza)
+def read_pizza(pizza_id: int, db: Session = Depends(get_db)):
+    return services.leer_pizza(db, pizza_id)
 
 
-@router.get("/mascotas", response_model=list[schemas.Mascota])
-def read_mascotas(db: Session = Depends(get_db)):
-    return services.listar_mascotas(db)
-
-
-@router.get("/mascotas/{mascota_id}", response_model=schemas.Mascota)
-def read_mascota(mascota_id: int, db: Session = Depends(get_db)):
-    return services.leer_mascota(db, mascota_id)
-
-
-@router.put("/mascotas/{mascota_id}", response_model=schemas.Mascota)
-def update_mascota(
-    mascota_id: int, mascota: schemas.MascotaUpdate, db: Session = Depends(get_db)
+@router.put("/pizzas/{pizza_id}", response_model=schemas.Pizza)
+def update_pizza(
+    pizza_id: int, pizza: schemas.PizzaUpdate, db: Session = Depends(get_db)
 ):
-    return services.modificar_mascota(db, mascota_id, mascota)
+    return services.modificar_pizza(db, pizza_id, pizza)
 
 
-@router.delete("/mascotas/{mascota_id}", response_model=schemas.Mascota)
-def delete_mascota(mascota_id: int, db: Session = Depends(get_db)):
-    return services.eliminar_mascota(db, mascota_id)
+@router.delete("/pizzas/{pizza_id}", response_model=schemas.Pizza)
+def delete_pizza(pizza_id: int, db: Session = Depends(get_db)):
+    return services.eliminar_pizza(db, pizza_id)
+
+
+# Rutas para Zapatos
+
+@router.post("/zapatos", response_model=schemas.Zapato)
+def create_zapato(zapato: schemas.ZapatoCreate, db: Session = Depends(get_db)):
+    return services.crear_zapato(db, zapato)
+
+
+@router.get("/zapatos", response_model=list[schemas.Zapato])
+def read_zapatos(db: Session = Depends(get_db)):
+    return services.listar_zapatos(db)
+
+
+@router.get("/zapatos/{zapato_id}", response_model=schemas.Zapato)
+def read_zapato(zapato_id: int, db: Session = Depends(get_db)):
+    return services.leer_zapato(db, zapato_id)
+
+
+@router.put("/zapatos/{zapato_id}", response_model=schemas.Zapato)
+def update_zapato(
+    zapato_id: int, zapato: schemas.ZapatoUpdate, db: Session = Depends(get_db)
+):
+    return services.modificar_zapato(db, zapato_id, zapato)
+
+
+@router.delete("/zapatos/{zapato_id}", response_model=schemas.Zapato)
+def delete_zapato(zapato_id: int, db: Session = Depends(get_db)):
+    return services.eliminar_zapato(db, zapato_id)
