@@ -2,7 +2,7 @@ import React from 'react';
 import ProductoForm from './ProductoForm';
 
 const CrearProducto = () => {
-  const handleSubmit = async (data) => {
+  /*const handleSubmit = async (data) => {
     try {
       const response = await fetch('http://127.0.0.1:8000/productos', {
         method: 'POST',
@@ -24,12 +24,12 @@ const CrearProducto = () => {
       console.error('Error al crear el producto:', error);
       alert(`Hubo un error al crear el producto: ${error.message}`);
     }
-  };
+  }; */
 
   return (
     <div>
       <h2>Crear Producto</h2>
-      <ProductoForm onSubmit={handleSubmit} />
+      <ProductoForm />
     </div>
   );
 };

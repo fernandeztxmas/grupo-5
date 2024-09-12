@@ -47,7 +47,7 @@ const ProductoForm = ({ onSubmit, initialData = {}, productId }) => {
       if (response.ok) {
         const result = await response.json();
         console.log('Producto guardado:', result);
-        onSubmit(result);
+        
       } else {
         const errorData = await response.json();
         throw new Error(`Error en la respuesta del servidor: ${response.status} - ${errorData.detail}`);
