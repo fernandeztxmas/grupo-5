@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import ProductoForm from './ProductoForm';
+import ProductoForm from '../components/ProductoForm';
 
 const ModificarProducto = () => {
   const { id } = useParams();

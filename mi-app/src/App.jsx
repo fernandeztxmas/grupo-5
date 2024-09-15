@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProductosList from './componentes/ProductoList'; 
-import CrearProducto from './componentes/CrearProducto';
-import ModificarProducto from './componentes/ModificarProducto';
-import ProductoDetalle from './componentes/ProductoDetalle'; 
+import ProductosList from './pages/ProductoList'; 
+import CrearProducto from './pages/CrearProducto';
+import ModificarProducto from './pages/ModificarProducto';
+import ProductoDetalle from './pages/ProductoDetalle'; 
 
 const App = () => {
   
@@ -17,8 +17,13 @@ const App = () => {
           <Route path="/modificar/:id" element={<ModificarProducto />} />
           <Route path="/producto/:id" element={<ProductoDetalle />} />
         </Routes>
+
+        <footer>
+        <p>&copy; 2024 Grupo 5</p>
+      </footer>
       </div>
     </Router>
+    
   );
 };
 

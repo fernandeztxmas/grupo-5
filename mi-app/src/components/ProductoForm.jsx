@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 const ProductoForm = ({ onSubmit, initialData = {}, productId }) => {
   const { control, handleSubmit, formState: { errors }, reset } = useForm({
@@ -7,6 +8,7 @@ const ProductoForm = ({ onSubmit, initialData = {}, productId }) => {
   });
 
   const [isFetched, setIsFetched] = useState(false);
+  const navigate = useNavigate(); // Hook para redirección
 
   useEffect(() => {
     if (productId && !isFetched) {
@@ -19,10 +21,8 @@ const ProductoForm = ({ onSubmit, initialData = {}, productId }) => {
         .catch(error => {
           console.error('Error al cargar el producto:', error);
         });
-    } else if (!productId) {
-      //reset(initialData);
     }
-  }, [productId, reset, initialData, isFetched]);
+  }, [productId, reset, isFetched]);
 
   const submitHandler = async (data) => {
     try {
@@ -47,7 +47,12 @@ const ProductoForm = ({ onSubmit, initialData = {}, productId }) => {
       if (response.ok) {
         const result = await response.json();
         console.log('Producto guardado:', result);
+
+        // Mostrar alerta de éxito
+        alert('Producto creado exitosamente');
         
+        // Redirigir al menú principal
+        navigate('/');
       } else {
         const errorData = await response.json();
         throw new Error(`Error en la respuesta del servidor: ${response.status} - ${errorData.detail}`);

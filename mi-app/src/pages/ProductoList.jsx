@@ -24,9 +24,7 @@ const ProductosList = () => {
     }
 
     try {
-      await fetch(`http://127.0.0.1:8000/productos/${id}`, {
-        method: 'DELETE',
-      });
+      await fetch(`http://127.0.0.1:8000/productos/${id}`, { method: 'DELETE' });
       alert('Producto eliminado con éxito');
       cargarProductos();
     } catch (error) {
