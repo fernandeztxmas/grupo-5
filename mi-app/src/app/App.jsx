@@ -10,7 +10,7 @@ const App = () => {
         <h1>Gestión de Productos</h1>
         <AppRouter />
         <footer>
-          <p>&copy; 2024 Grupo 5</p>
+          <p>&copy; 2024 Grupo 5 🧙‍♂️</p>
         </footer>
       </div>
     </Router>

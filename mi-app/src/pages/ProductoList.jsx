@@ -40,7 +40,7 @@ const ProductosList = () => {
       <ul>
         {productos.map(producto => (
           <li key={producto.id}>
-            {producto.nombre} - {producto.precio} - {producto.descripcion}
+            {producto.nombre} - $ {producto.precio} - {producto.descripcion}
             <Link to={`/modificar/${producto.id}`}> Modificar</Link>
             <Link to={`/producto/${producto.id}`}> Ver Detalles</Link>
             <button onClick={() => eliminarProducto(producto.id)}>Eliminar</button>
