@@ -1,20 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import AppRouter from './AppRouter';
-import '../assets/styles/styles.css'; // Agregar estilos globales si es necesario
+import { Routes, Route } from 'react-router-dom';
+import ProductosList from '../pages/ProductoList';
+import CrearProducto from '../pages/CrearProducto';
+import ModificarProducto from '../pages/ModificarProducto';
+import ProductoDetalle from '../pages/ProductoDetalle';
+import Layout from '../components/Layout';
 
-const App = () => {
+const AppRouter = () => {
   return (
-    <Router>
-      <div>
-        <h1>Gestión de Productos</h1>
-        <AppRouter />
-        <footer>
-          <p>&copy; 2024 Grupo 5</p>
-        </footer>
-      </div>
-    </Router>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<ProductosList />} />
+        <Route path="/crear" element={<CrearProducto />} />
+        <Route path="/modificar/:id" element={<ModificarProducto />} />
+        <Route path="/producto/:id" element={<ProductoDetalle />} />
+      </Routes>
+    </Layout>
   );
 };
 
-export default App;
+export default AppRouter;
